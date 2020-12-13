@@ -3,5 +3,6 @@ kind: Kustomization
 
 namespace: argocd
 
-resources:
-  - bootstrap-application.yml
+bases:
+  - ../../gitops-helm-quarkus/overlays/dev
+  - ../../gitops-helm-quarkus/overlays/prod
