@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gitops-helm-quarkus
+spec:
+  destination:
+    namespace: gitops-helm-quarkus
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    helm:
+      parameters:
+        - name: build.enabled
+          value: "false"
+        - name: image.name
+          value: quay.io/ablock/gitops-helm-quarkus
+    path: alpha/quarkus-chart
+    repoURL: https://github.com/redhat-developer/redhat-helm-charts
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ArgoCD
+metadata:
+  name: argocd
+spec:
+  dex:
+    image: quay.io/redhat-cop/dex
+    openShiftOAuth: true
+    version: v2.22.0-openshift
+  rbac:
+    defaultPolicy: role:admin
+  server:
+    route:
+      enabled: true
+  initialRepositories: |
+    - url: https://github.com/argoproj/my-private-repository

@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gitops-helm-quarkus
+spec:
+  destination:
+    namespace: gitops-helm-quarkus-prod
+  source:
+    helm:
+      parameters:
+        - name: build.enabled
+          value: "false"
+        - name: image.name
+          value: quay.io/ablock/gitops-helm-quarkus
+        - name: deploy.env[0].name
+          value: ENVIRONMENT
+        - name: deploy.env[0].value
+          value: prod
