@@ -6,3 +6,4 @@ namespace: argocd
 resources:
   - argocd.yml
   - bootstrap-application.yml
+  - argocd-clusterrolebinding.yml

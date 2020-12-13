@@ -29,3 +29,5 @@ At this point, three (3) ArgoCD applications will be deployed:
 1. An app of apps that containers the two applications to deploy Helm Charts
 2. Application to deploy Helm Chart to a project called `gitops-helm-quarkus`
 3. Application to deploy Helm Chart to a project called `gitops-helm-quarkus-prod`
+
+You can navigate to the applications by locating the routes configured in each namespace.
