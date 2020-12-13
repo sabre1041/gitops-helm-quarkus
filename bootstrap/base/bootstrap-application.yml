@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bootstrap
+spec:
+  destination:
+    namespace: argocd
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: bootstrap/base
+    repoURL: https://github.com/sabre1041/gitops-helm-quarkus
+    targetRevision: gitops
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
