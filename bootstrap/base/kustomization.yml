@@ -4,5 +4,5 @@ kind: Kustomization
 namespace: argocd
 
 bases:
-  - ../gitops-helm-quarkus/overlays/dev
-  - ../gitops-helm-quarkus/overlays/prod
+  - ../../gitops-helm-quarkus/overlays/dev
+  - ../../gitops-helm-quarkus/overlays/prod

@@ -14,3 +14,4 @@ spec:
       enabled: true
   initialRepositories: |
     - url: https://github.com/argoproj/my-private-repository
+    - url: https://github.com/sabre1041/gitops-helm-quarkus
