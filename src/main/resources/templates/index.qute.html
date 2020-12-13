@@ -1,0 +1,73 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>GitOps Loves Helm</title>
+        <style>
+            body {
+                background-color: {background_color};
+            }
+            * {
+                box-sizing: border-box;
+            }
+
+            h1 {
+                text-align:center;
+                font-size: 70px;
+            }
+
+            .column {
+                float: left;
+                width: 50%;
+                padding: 5px;
+            }
+
+            .row {
+                width: 50%;
+                margin: 0 auto;
+            }
+
+            .inner-row {
+                width: 50%;
+                margin: 0 auto;
+            }
+
+            /* Clearfix (clear floats) */
+            .row::after {
+                content: "";
+                clear: both;
+                display: table;
+            }
+
+            .message {
+                padding-top: 40px;
+                text-align: center;
+                font-size: 30px;
+            }
+        </style>
+    </head>
+    <body>
+    <h1>GitOps Loves Helm</h1>
+
+    <div class="row">
+    <div class="column">
+        <div class="inner-row">
+        <img src="../images/argocd.png" alt="ArgoCD" style="text-align:center;width:100%">
+        </div>
+    </div>
+    <div class="column">
+        <div class="inner-row">
+        <img src="../images/helm.png" alt="Helm" style="text-align:center;width:100%">
+        </div>
+    </div>
+    </div>
+    {#if message != ""}
+    <div class="row">
+    <div class="message">
+        {message}
+    </div>
+    </div>
+    {/if}
+
+    </body>
+    </html>
