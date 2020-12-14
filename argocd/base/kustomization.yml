@@ -4,6 +4,7 @@ kind: Kustomization
 namespace: argocd
 
 resources:
+  - argocd-gpg-keys-cm.yml
   - argocd.yml
   - bootstrap-application.yml
   - argocd-clusterrolebinding.yml
