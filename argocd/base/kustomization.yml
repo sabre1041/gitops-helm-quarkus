@@ -6,5 +6,4 @@ namespace: openshift-gitops
 resources:
   - argocd.yml
   - bootstrap-application.yml
-  - argocd-application-clusterrolebinding.yaml
-  - argocd-applicationset-clusterrolebinding.yaml
+  - argocd-clusterrolebinding.yaml
