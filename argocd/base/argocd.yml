@@ -1,17 +1,31 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ArgoCD
 metadata:
-  name: argocd
+  name: openshift-gitops
+  namespace: openshift-gitops
 spec:
   dex:
-    image: quay.io/redhat-cop/dex
     openShiftOAuth: true
-    version: v2.22.0-openshift
+    version: sha256:77bfea96e8d8f3e4197b9f6020c8f5dedbb701245c19afd69a15747ae4bf2804
   rbac:
-    defaultPolicy: role:admin
+    defaultPolicy: "role:admin"
   server:
+    insecure: true
     route:
       enabled: true
-  initialRepositories: |
-    - url: https://github.com/argoproj/my-private-repository
-    - url: https://github.com/sabre1041/gitops-helm-quarkus
+    tls:
+      insecureEdgeTerminationPolicy: Redirect
+      termination: edge
+  resourceCustomizations: |
+    route.openshift.io/Route:
+      ignoreDifferences: |
+        jsonPointers:
+        - /spec/host
+    apps/Deployment:
+      ignoreDifferences: |
+        jsonPointers:
+        - /spec/template/spec/containers/0/image
+    apps.openshift.io/DeploymentConfig:
+      ignoreDifferences: |
+        jsonPointers:
+        - /spec/template/spec/containers/0/image
