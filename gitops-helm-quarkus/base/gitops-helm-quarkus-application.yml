@@ -14,9 +14,9 @@ spec:
           value: "false"
         - name: image.name
           value: quay.io/ablock/gitops-helm-quarkus
-    path: alpha/quarkus-chart
-    repoURL: https://github.com/redhat-developer/redhat-helm-charts
-    targetRevision: HEAD
+    repoURL: https://charts.openshift.io/charts
+    chart: redhat-quarkus
+    targetRevision: 0.0.3
   syncPolicy:
     automated:
       prune: true
