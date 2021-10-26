@@ -14,7 +14,7 @@ spec:
           value: "false"
         - name: image.name
           value: quay.io/ablock/gitops-helm-quarkus
-    repoURL: https://charts.openshift.io/charts
+    repoURL: https://charts.openshift.io
     chart: redhat-quarkus
     targetRevision: 0.0.3
   syncPolicy:
